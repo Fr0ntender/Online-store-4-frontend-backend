@@ -1,0 +1,22 @@
+{
+    "id": "",
+    "isbn": "",
+    "name": "",
+    "vote": "",
+    "year": "",
+    "price": "",
+    "rating": "",
+    "lastName": "",
+    "firstName": "",
+    "img": {
+        "file": {
+            "name": ""
+        },
+        "fileUrl": ""
+    },
+    "isbnValid": true,
+    "yearValid": true,
+    "nameRequired": true,
+    "lastRequired": true,
+    "firstRequired": true
+}
