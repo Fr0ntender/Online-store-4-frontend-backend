@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 
 import {
@@ -26,11 +27,19 @@ import {
 import Card from '../../components/Card'
 import Navbar from '../../components/Navbar'
 
+const propTypes = {
+    basketData: PropTypes.arrayOf(PropTypes.number, PropTypes.string),
+}
+
+const defaultProps = {
+    basketData: [],
+}
+
 const Home = ({
     login,
     cardData,
     showModal,
-    basketData = [],
+    basketData,
     authorized,
     addToBasket,
     findCardData,
@@ -65,13 +74,14 @@ const Home = ({
                         <Box
                             display="flex"
                             flexWrap="wrap"
-                            
+                            m={-1}
                         >
                             {cardData.map(v =>
                                 <Box 
                                     key={v4()}
                                     width="25%"
                                     display="flex"
+                                    p={1}
                                 >
                                     <Card
                                         key={v4()}
@@ -96,4 +106,8 @@ const Home = ({
         </div>
     )
 }
+
+Home.propTypes = propTypes;
+Home.defaultProps = defaultProps;
+
 export default Home

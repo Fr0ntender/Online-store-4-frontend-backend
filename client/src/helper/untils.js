@@ -24,7 +24,16 @@ export const getSession = () => ({
 })
 
 export const setProductToBasket = data => {
-    localStorage.setItem('product_in_basket', JSON.stringify(data));
+    const carentData = JSON.parse(localStorage.getItem('product_in_basket'));
+    if (carentData) {
+        const checkData = carentData.find(({_id}) => _id === data[0]._id);
+        if (!checkData) {
+            const newData = [].concat(carentData, data);
+            localStorage.setItem('product_in_basket', JSON.stringify(newData));
+        }        
+    } else {
+        localStorage.setItem('product_in_basket', JSON.stringify(data));
+    }
 }
 
 export const getProductBasket = () => {

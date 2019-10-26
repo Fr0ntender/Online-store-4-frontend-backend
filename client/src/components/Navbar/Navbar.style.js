@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { 
     color,
     fontsize,
     fontfamily,
-} from '../../styles/var.style'
-import searchPath from '../../assets/search.svg'
+} from '../../styles/var.style';
+import searchPath from '../../assets/search.svg';
 
 export const Nav = styled.nav`
     margin-top: 20px;
@@ -15,7 +15,8 @@ export const Nav = styled.nav`
         text-decoration: none;
         color: ${color.default};
     }
-`
+`;
+
 const types = ({types}) => {
     if (types === 'left') {
         return `
@@ -30,41 +31,53 @@ const types = ({types}) => {
             justify-content: flex-end;
         `
     }
-}
+};
+
 export const NavElem = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: ${props => types(props)};
-`
+`;
+
 export const Logos = styled.div`
     display: flex;
     align-items: center;
-`
+`;
+
+const basketElem = ({basketLength}) => {
+    if(basketLength > 0) {
+        return `
+            &::after {
+                content: "${basketLength}";
+                position: absolute;
+                top: -4px;
+                right: -4px;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background-color: ${color.accent};
+                transition: 0.2ms ease-in;
+                font-size: 11px;
+                font-family: ${fontfamily.default};
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 1;
+            }
+        `
+    }
+};
+
 export const Basket = styled.div`
     position: relative;
-    &::after {
-        content: "${props => props.basketLength}";
-        position: absolute;
-        top: -4px;
-        right: -4px;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background-color: ${color.accent};
-        transition: 0.2ms ease-in;
-        font-size: 11px;
-        font-family: ${fontfamily.default};
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 1;
-    }
-`
+    ${props => basketElem(props)}
+`;
 
 export const LogosIcon = styled.img`
     margin-right: 7px;
-`
+`;
+
 export const LogosDesc = styled.span`
     color: ${color.primary};
     font-size: ${fontsize.header.h2.md};
@@ -72,7 +85,8 @@ export const LogosDesc = styled.span`
     letter-spacing: normal;
     font-family: ${fontfamily.default};
 
-`
+`;
+
 export const Search = styled.div`
     height: 40px;
     box-sizing: border-box;
@@ -82,7 +96,8 @@ export const Search = styled.div`
     border: 2px solid #005bff;
     border-right-width: 0;
     border-radius: 4px 0 0 4px;
-`
+`;
+
 export const SearchInput = styled.input`
     height: 100%;
     width: 100%;
@@ -102,7 +117,8 @@ export const SearchInput = styled.input`
     box-shadow: none;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-`
+`;
+
 export const SearchButtonWrap = styled.div`
     display: flex;
     justify-content: center;
@@ -118,7 +134,8 @@ export const SearchButtonWrap = styled.div`
     &:hover {
         background-color: ${color.primaryHover};
     }
-`
+`;
+
 export const SearchButtonWrapContent = styled.button`
     cursor: pointer;
     outline: none;
@@ -136,7 +153,8 @@ export const SearchButtonWrapContent = styled.button`
         background-color: transparent;
         background-repeat: no-repeat;
     }
-`
+`;
+
 export const Icons = styled.div`
     display: flex;
     flex-direction: column;
@@ -183,10 +201,11 @@ export const Icons = styled.div`
         }
     }}
     
-`
+`;
+
 export const IconText = styled.span`
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
     font-family: Calibri, Arial,sans-serif;
-`
+`;

@@ -29,9 +29,10 @@ const reload = dispath => {
             type: RELOAD_BASKET_START
         });
         const data = getProductBasket();
+        const basketData = data ? data : [];
         dispath({
             type: RELOAD_BASKET_SUCCESS,
-            payload: data,
+            payload: basketData,
         });
     }
     catch (err) {

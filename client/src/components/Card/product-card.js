@@ -5,6 +5,7 @@ import {
     Grid,
     Card,
     Paper,
+    Button,
     CardContent,
     Container,
 } from '@material-ui/core'
@@ -67,7 +68,13 @@ const ProductCard = ({
                     <CardAvtorName>{Year}</CardAvtorName>
                 </CardAvtor>
                 <Bay>
-                    <BayButton1 onClick={() => addToBasket(id)}>В корзину</BayButton1>
+                    <Button
+                        onClick={() => addToBasket(id)}
+                        variant="contained"
+                        color="primary"
+                    >
+                        В корзину
+                    </Button>
                 </Bay>
             </CardContent>
         </Card>

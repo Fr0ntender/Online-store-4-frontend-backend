@@ -29,13 +29,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Set up connection of database
 setUpConnection()
 
-//Entrypoint
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname + '/client/index.html'))
-// })
-
-app.get('/', (req, res) => {
-    res.sendStatus(200)
+// Entrypoint
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/index.html'))
 })
 
 // RESTful api handlers
