@@ -1,6 +1,6 @@
 import React from 'react'
-import Icon from '../../components/Icon'
-import Navbar from '../../components/Navbar'
+import Icon from '../../components/icon'
+import Navbar from '../../components/navbar'
 
 import {
     Container,

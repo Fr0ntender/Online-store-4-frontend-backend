@@ -6,11 +6,11 @@ import {
     Box,
     Grid,
     Container,
-} from '@material-ui/core'
+} from '@material-ui/core';
 
 import {
     HeaderH1,
-} from '../../styles/typography.style'
+} from '../../styles/typography.style';
 
 // import {
 //     List,
@@ -22,18 +22,18 @@ import {
 import {
     CardRow,
     CardWrap
-} from './Home.style'
+} from './Home.style';
 
-import Card from '../../components/Card'
-import Navbar from '../../components/Navbar'
+import ProductCard from '../../components/product-card';
+import Navbar from '../../components/navbar';
 
 const propTypes = {
-    basketData: PropTypes.arrayOf(PropTypes.number, PropTypes.string),
-}
+    basketData: PropTypes.arrayOf(PropTypes.string, PropTypes.number),
+};
 
 const defaultProps = {
     basketData: [],
-}
+};
 
 const Home = ({
     login,
@@ -76,26 +76,25 @@ const Home = ({
                             flexWrap="wrap"
                             m={-1}
                         >
-                            {cardData.map(v =>
+                            {cardData.map(item =>
                                 <Box 
                                     key={v4()}
                                     width="25%"
                                     display="flex"
                                     p={1}
                                 >
-                                    <Card
+                                    <ProductCard
                                         key={v4()}
-                                        id={v._id}
-                                        Img={v.productImg}
-                                        Name={v.productName}
-                                        Vote={v.productVote}
-                                        Year={v.productYear}
-                                        Autor={v.productAutor}
-                                        Price={v.productPrice}
-                                        Rating={v.productRating}
+                                        _id={item._id}
+                                        name={item.name}
+                                        vote={item.vote}
+                                        year={item.year}
+                                        price={item.price}
+                                        rating={item.rating}
+                                        imgUrl={item.imgUrl}
+                                        firstName={item.firstName}
+                                        lastName={item.lastName}
                                         addToBasket={addToBasket}
-                                        LastName={v.productLastName}
-                                        FirstName={v.productFirstName}
                                     />
                                 </Box>
                             )}
@@ -104,10 +103,10 @@ const Home = ({
                 </Grid>
             </Container>
         </div>
-    )
-}
+    );
+};
 
 Home.propTypes = propTypes;
 Home.defaultProps = defaultProps;
 
-export default Home
+export default Home;

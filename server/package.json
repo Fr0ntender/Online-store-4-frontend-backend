@@ -3,9 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "author": "Frost0x",
-    "license": "ISC",
+    "license": "Custom",
     "scripts": {
-        "start": "nodemon -r dotenv/config src/index.js dotenv_config_path=.env.development"
+        "start": "nodemon -r dotenv/config src/index.js dotenv_config_path=.env"
     },
     "dependencies": {
         "body-parser": "^1.19.0",

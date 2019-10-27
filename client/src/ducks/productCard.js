@@ -68,33 +68,24 @@ export const addCardData = data => dispath => {
     dispath({
         type: ADD_CARD_DATA_START
     });
-
-    if (typeof data.productId === 'number') {
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(() => {
+            dispath({
+                type: ADD_CARD_DATA_SUCCESS
+            });
         })
-            .then(() => {
-                dispath({
-                    type: ADD_CARD_DATA_SUCCESS
-                });
-            })
-            .catch(error => dispath({
-                type: ADD_CARD_DATA_FAIL,
-                payload: {
-                    payload: `Add fetching error - ${error}`
-                }
-            }));
-
-    } else {
-        dispath({
+        .catch(error => dispath({
             type: ADD_CARD_DATA_FAIL,
-            payload: 'The coincidence of dates in the localStorage'
-        });
-    }
+            payload: {
+                payload: `Add fetching error - ${error}`
+            }
+        }));
 };
 
 /*
@@ -106,9 +97,9 @@ export const reloadCardData = () => dispath => reload(dispath);
 /*
     Action data changes in the product card
 */
-export const chengeCardData = (id, data) => dispath => {
+export const chengeCardData = data => dispath => {
 
-    const url = `${REACT_APP_API_URL}/api/product/change/${id}`
+    const url = `${REACT_APP_API_URL}/api/product/change/${data.id}`
 
     dispath({
         type: CHENGE_CARD_DATA_START

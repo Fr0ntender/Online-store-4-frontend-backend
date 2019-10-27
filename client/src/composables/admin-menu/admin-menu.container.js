@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { addCardData } from '../../ducks/productCard'
 
-import AdminMenu from './AdminMenu'
+import AdminMenu from './admin-menu'
 
 const mapStateToProps = state => ({
     productCard: state.productCard,

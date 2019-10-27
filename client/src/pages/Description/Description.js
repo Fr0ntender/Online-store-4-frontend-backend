@@ -12,7 +12,7 @@ import {
     Desc2,
 } from '../../styles/typography.style'
 
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/navbar'
 
 const Description = () => {
     return (

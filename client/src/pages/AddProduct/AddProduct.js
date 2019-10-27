@@ -6,9 +6,9 @@ import {
     Col,
 } from '../../styles/greed.style'
 
-import Navbar from '../../components/Navbar'
-import AddToCard from '../../composables/AddToCard'
-import AdminMenu from '../../composables/AdminMenu'
+import Navbar from '../../components/navbar'
+import AddToCard from '../../composables/add-to-card'
+import AdminMenu from '../../composables/admin-menu'
 
 const AddProduct = ({
     match,

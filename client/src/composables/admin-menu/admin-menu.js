@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import {
     List,
     ListElem
-} from './AdminMenu.style'
+} from './admin-menu.style'
 
 const AddToCard = () => {
     return (

@@ -1,7 +1,7 @@
-FROM node:12.10.0-alpine
-RUN yarn global add nodemon
-COPY . /home/os-one
-VOLUME /home/os-one
-RUN yarn
+FROM node:13.0.1-alpine
 WORKDIR /home/os-one
-CMD ["nodemon", "-r", "dotenv/config", "src/index.js", "dotenv_config_path=.env.production"]
+COPY . /home/os-one
+RUN yarn \
+    && yarn global add nodemon
+ENV DB_HOST=mongodb+srv://admin:C3l03cja12cn5@os-mtwj9.gcp.mongodb.net/os-two?retryWrites=true&w=majority
+CMD ["nodemon", "src/index.js"]

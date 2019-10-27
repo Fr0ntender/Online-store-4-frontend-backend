@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser'),
     express = require('express'),
+    path = require('path'),
     cors = require('cors');
 
 const {
@@ -12,7 +13,7 @@ const {
     findProduct
 } = require('./utils');
 
-const { LS_PORT } = process.env;
+const { PORT } = process.env;
 // Initialization of express application
 const app = express();
 
@@ -23,14 +24,13 @@ app.use(cors({ origin: '*' }));
 // Using bodyParser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-
+app.use(express.static(path.join(__dirname, 'client')));
 
 // Set up connection of database
 setUpConnection()
 
 // Entrypoint
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/index.html'))
 })
 
@@ -71,6 +71,6 @@ app.delete('/api/product/:id', (req, res) => {
         .catch(err => res.send(`Error ${err}`))
 })
 
-app.listen(LS_PORT, () => {
-    console.log(`Server running on http://localhost:${LS_PORT}`)
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`)
 })

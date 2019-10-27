@@ -7,9 +7,9 @@ import {
     Col,
 } from '../../styles/greed.style'
 
-import Navbar from '../../components/Navbar'
-import AdminMenu from '../../composables/AdminMenu'
-import ProductTable from '../../components/ProductTable'
+import Navbar from '../../components/navbar'
+import AdminMenu from '../../composables/admin-menu'
+import ProductTable from '../../components/product-table'
 
 const Products = ({ 
     logout,

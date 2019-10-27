@@ -8,7 +8,7 @@ import {
     CancellButton,
     SearchButtonWrap,
     SearchButtonWrapContent,
-} from './Search.style'
+} from './search.style'
 
 import Cancell from '../../assets/cancell.svg'
 

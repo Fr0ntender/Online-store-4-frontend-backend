@@ -1,6 +1,6 @@
 const validate = (name, value) => {
     switch (name) {
-        case 'id':
+        case 'num':
             if (value.length <= 20) {
                 return Number(value.replace(/[.*+?^${}()<>a-zA-Zа-яА-ЯёЁ |[\]\\]/gi, ''))
             } else {

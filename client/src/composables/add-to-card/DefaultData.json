@@ -1,5 +1,5 @@
 {
-    "id": "",
+    "num": "",
     "isbn": "",
     "name": "",
     "vote": "",
@@ -8,12 +8,8 @@
     "rating": "",
     "lastName": "",
     "firstName": "",
-    "img": {
-        "file": {
-            "name": ""
-        },
-        "fileUrl": ""
-    },
+    "imgName": "",
+    "imgUrl": "",
     "isbnValid": true,
     "yearValid": true,
     "nameRequired": true,

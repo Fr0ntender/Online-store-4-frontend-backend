@@ -7,7 +7,7 @@ import {
   Redirect
 } from 'react-router-dom'
 
-import PrivateRoute from '../composables/PrivateRoute/'
+import PrivateRoute from '../composables/private-route'
 
 import Home from '../pages/Home/'
 import Products from '../pages/Products/'

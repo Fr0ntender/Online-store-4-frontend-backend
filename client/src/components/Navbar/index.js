@@ -2,7 +2,7 @@ import React from 'react';
 import ReactSVG from 'react-svg';
 import { Link } from 'react-router-dom';
 
-import Search from '../../components/Search';
+import Search from '../../components/search';
 import LoginSrc from '../../assets/login.svg';
 import ExitSrc from '../../assets/exit.svg';
 import Logo from '../../assets/logo.svg';
@@ -18,7 +18,7 @@ import {
     LogosIcon,
     IconText,
     LogosDesc
-} from './Navbar.style';
+} from './navbar.style';
 
 const Navbar = ({
     login,

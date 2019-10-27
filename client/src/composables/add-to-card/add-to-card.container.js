@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { addCardData, chengeCardData } from '../../ducks/productCard'
 
-import AddToCard from './AddToCard'
+import AddToCard from './add-to-card'
 
 const mapStateToProps = state => ({
     cardData: state.productCard.cardData,

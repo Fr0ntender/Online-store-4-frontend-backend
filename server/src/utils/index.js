@@ -3,9 +3,9 @@ const mongoose = require('mongoose')
 const Product = require('../models/Product')
 
 exports.setUpConnection = () => {
-    mongoose.connect(process.env.DB_HOST, { 
+    mongoose.connect(process.env.DB_HOST, {
         useNewUrlParser: true,
-        useUnifiedTopology: true 
+        useUnifiedTopology: true
     })
         .then(() => console.log(`DB successfully connected`))
         .catch(err => console.log(`Connection error: ${err}`))
@@ -13,41 +13,43 @@ exports.setUpConnection = () => {
 
 exports.listProduct = () => Product.find();
 
-exports.findProduct = productName => Product.find({ productName: { $regex: productName, $options: "i" } });
+exports.findProduct = name => Product.find({ name: { $regex: name, $options: "i" } });
 
-exports.deleteProduct = async id => await Product.deleteOne({ _id: id}, err => { if (err) return err });
+exports.deleteProduct = async id => await Product.deleteOne({ _id: id }, err => { if (err) return err });
 
 exports.createProduct = async data => {
     const product = new Product({
-        productId: data.productId,
-        productImg: data.productImg,
-        productIsbn: data.productIsbn,
-        productName: data.productName,
-        productVote: data.productVote,
-        productYear: data.productYear,
-        productPrice: data.productPrice,
-        productRating: data.productRating,
-        productLastName: data.productLastName,
-        productFirstName: data.productFirstName
+        num: data.num,
+        isbn: data.isbn,
+        name: data.name,
+        vote: data.vote,
+        year: data.year,
+        price: data.price,
+        rating: data.rating,
+        imgUrl: data.imgUrl,
+        imgName: data.imgName,
+        lastName: data.lastName,
+        firstName: data.firstName,
     })
     return await product.save()
 }
 
 exports.changeProduct = async (id, data) => {
     await Product.updateOne({
-            _id: id
-        }, {
+        _id: id
+    }, {
         $set: {
-            productId: data.productId,
-            productImg: data.productImg,
-            productIsbn: data.productIsbn,
-            productName: data.productName,
-            productVote: data.productVote,
-            productYear: data.productYear,
-            productPrice: data.productPrice,
-            productRating: data.productRating,
-            productLastName: data.productLastName,
-            productFirstName: data.productFirstName
+            num: data.num,
+            isbn: data.isbn,
+            name: data.name,
+            vote: data.vote,
+            year: data.year,
+            price: data.price,
+            rating: data.rating,
+            imgUrl: data.imgUrl,
+            imgName: data.imgName,
+            lastName: data.lastName,
+            firstName: data.firstName,
         }
     }, err => { if (err) return err })
 }
@@ -55,15 +57,15 @@ exports.changeProduct = async (id, data) => {
 exports.sortProduct = (state, name) => {
     if (name === 'Name') {
         if (!state) {
-            return Product.find({}).sort({ productName: -1 })
+            return Product.find({}).sort({ name: -1 })
         } else {
-            return Product.find({}).sort({ productName: 1 })
+            return Product.find({}).sort({ name: 1 })
         }
     } else {
         if (!state) {
-            return Product.find({}).sort({ productYear: -1 })
+            return Product.find({}).sort({ year: -1 })
         } else {
-            return Product.find({}).sort({ productYear: 1 })
+            return Product.find({}).sort({ year: 1 })
         }
     }
 }

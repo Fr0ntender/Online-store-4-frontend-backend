@@ -3,16 +3,17 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
-    productId: { type: String },
-    productImg: { type: Object },
-    productIsbn: { type: String },
-    productName: { type: String },
-    productVote: { type: String },
-    productYear: { type: String },
-    productPrice: { type: String },
-    productRating: { type: String },
-    productLastName: { type: String },
-    productFirstName: { type: String }
+    num: { type: Number },
+    isbn: { type: String },
+    name: { type: String },
+    vote: { type: Number },
+    year: { type: Number },
+    price: { type: Number },
+    rating: { type: Number },
+    imgUrl: { type: String },
+    imgName: { type: String },
+    lastName: { type: String },
+    firstName: { type: String }
 })
 
 module.exports = mongoose.model('Product', ProductSchema)

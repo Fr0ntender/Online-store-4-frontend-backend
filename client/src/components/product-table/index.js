@@ -1,22 +1,35 @@
-import React from 'react'
-import { v4 } from 'uuid'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { v4 } from 'uuid';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import {
     HeaderH1,
     Desc2,
-} from '../../styles/typography.style'
+} from '../../styles/typography.style';
 
 import {
-    Table,
     Th,
     Td,
+    Table,
     Content,
     ImgArrow,
     TableDesc,
-} from './ProductTable.style'
+} from './product-table.style';
 
 import Arrow from '../../assets/arrow.svg'
+
+const propTypes = {
+    data: PropTypes.array,
+    sortState: PropTypes.objectOf(PropTypes.string),
+    delateData: PropTypes.func.isRequired,
+    searchActive: PropTypes.func.isRequired,
+};
+
+const defaultProps = {
+    data: [],
+    sortState: {},
+};
 
 const ProductTable = ({
     data,
@@ -60,21 +73,21 @@ const ProductTable = ({
                 <tbody>
                     {
                         data && data.length > 0 
-                        ? data.map(v =>
+                        ? data.map(item =>
                             <tr key={v4()}>
-                                <Td key={v4()} set="0.6">{v.productId}</Td>
-                                <Td key={v4()} set="2.65">{v.productName}</Td>
-                                <Td key={v4()} set="0.45">{v.productPrice} ₽</Td>
-                                <Td key={v4()} set="0.4">{v.productYear}</Td>
+                                <Td key={v4()} set="0.6">{item.num}</Td>
+                                <Td key={v4()} set="2.65">{item.name}</Td>
+                                <Td key={v4()} set="0.45">{item.price} ₽</Td>
+                                <Td key={v4()} set="0.4">{item.year}</Td>
                                 <Td key={v4()} set="0.3">
-                                    <Link to={`/admin/products/${v._id}`}>
+                                    <Link to={`/admin/products/${item._id}`}>
                                         <TableDesc mt="0" mb="0" color="change">Изменить</TableDesc>
                                     </Link>
                                 </Td>
                                 <Td key={v4()} set="0.5">
                                     <TableDesc mt="0" mb="0"
                                     color="remove"
-                                    onClick={() => delateData(v._id)}>Удалить</TableDesc>
+                                    onClick={() => delateData(item._id)}>Удалить</TableDesc>
                                 </Td>
                             </tr>)
                         :
@@ -90,4 +103,7 @@ const ProductTable = ({
     )
 }
 
-export default ProductTable
+ProductTable.propTypes = propTypes;
+ProductTable.defaultProps = defaultProps;
+
+export default ProductTable;
