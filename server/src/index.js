@@ -33,6 +33,9 @@ setUpConnection()
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/index.html'))
 })
+app.get('/callback', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/index.html'))
+})
 
 // RESTful api handlers
 app.get('/api/products', (req, res) => {
