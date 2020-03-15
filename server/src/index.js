@@ -1,7 +1,7 @@
-const bodyParser = require('body-parser'),
-    express = require('express'),
-    path = require('path'),
-    cors = require('cors');
+const bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const cors = require('cors');
 
 const {
     setUpConnection,
@@ -28,14 +28,6 @@ app.use(express.static(path.join(__dirname, 'client')));
 
 // Set up connection of database
 setUpConnection()
-
-// Entrypoint
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/index.html'))
-})
-app.get('/callback', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/index.html'))
-})
 
 // RESTful api handlers
 app.get('/api/products', (req, res) => {
@@ -72,6 +64,15 @@ app.delete('/api/product/:id', (req, res) => {
     deleteProduct(req.params.id)
         .then(() => res.send('succses'))
         .catch(err => res.send(`Error ${err}`))
+})
+
+// Entrypoint Client
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/index.html'))
+})
+
+app.get('/callback', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/index.html'))
 })
 
 app.listen(PORT, () => {

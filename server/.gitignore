@@ -4,6 +4,9 @@
 /.pnp
 .pnp.js
 
+#static
+/src/client
+
 # Coverage directory used by tools like istanbul
 coverage
 

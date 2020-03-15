@@ -6,7 +6,6 @@ import Search from '../../components/search';
 import LoginSrc from '../../assets/login.svg';
 import ExitSrc from '../../assets/exit.svg';
 import Logo from '../../assets/logo.svg';
-import BooksSrc from '../../assets/books.svg';
 import TrashSrc from '../../assets/trash.svg';
 
 import {
@@ -24,7 +23,6 @@ const Navbar = ({
     login,
     search,
     logout,
-    showModal,
     authorized,
     basketLength,
     findCardData,
@@ -44,12 +42,6 @@ const Navbar = ({
                     reloadCardData={reloadCardData} />}
             </NavElem>
             <NavElem types="right">
-                <Link to="/description">
-                    <Icons types="book">
-                        <ReactSVG src={BooksSrc} />
-                        <IconText>О проекте</IconText>
-                    </Icons>
-                </Link>
                 {
                     authorized
                         ?
